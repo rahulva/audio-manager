@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "audio-manager": {
@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts/recorder.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "audio-manager"
+    }
+  },
+  "defaultProject": "audio-manager",
+  "cli": {
+    "analytics": "f9b59b06-308a-4049-b2bc-8fd5c5a42031"
+  }
 }

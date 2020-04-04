@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { AudioRecorder } from 'src/scripts/recorder'
 
 @Component({
   selector: 'app-root',

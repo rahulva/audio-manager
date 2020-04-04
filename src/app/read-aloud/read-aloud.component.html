@@ -1,0 +1,14 @@
+<p>read-aloud works!</p>
+
+<button id="record" (click)="startRecording()">Start</button>
+<button id="stop" (click)="stopRecording()">Stop</button>
+<button id="play" (click)="playRecording()">Play</button>
+<button id="reset" (click)="resetRecorder()">Reset</button>
+
+<p>{{progressValue}}</p>
+<audio controls [src]="audioUrl"></audio>
+<a [href]="audioUrl" download type="audio/mp3">Download</a>
+<div style="width: 400px; height: 20px;">
+    <mat-progress-bar class="record-progress" mode="determinate" [value]="progressValue/3000 * 100" color="red">
+    </mat-progress-bar>
+</div>
