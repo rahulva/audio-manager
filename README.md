@@ -1,3 +1,27 @@
+# Functional Requirements / TODOs
+
+1. Read Aloud Scope
+--------------------
+Stop recording in y no.of seconds
+ - Allow an end option
+
+Timer, Progress
+ Run a timer for x no.of seconds.
+ - Allow a skip option
+ - Show the progress
+Recording
+ Start recording in x no.of seconds
+Play
+ Save to audio to file
+ Play the file
+
+ 2. Repeat Sentence
+ -------------------
+TODO
+ 3. TODO
+
+## Technical Matters
+
 # AudioManager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
@@ -26,23 +50,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-1. Read Aloud Scope
---------------------
-Stop recording in y no.of seconds
- - Allow an end option
-
-Timer, Progress
- Run a timer for x no.of seconds.
- - Allow a skip option
- - Show the progress
-Recording
- Start recording in x no.of seconds
-Play
- Save to audio to file
- Play the file
-
- 2. Repeat Sentence
- -------------------
-TODO
- 3. TODO
