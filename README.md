@@ -2,23 +2,32 @@
 
 1. Read Aloud Scope
 --------------------
-Stop recording in y no.of seconds
- - Allow an end option
+1. Run timer
+ 1.1 Allow to skip the timer and start recoring.
+2. Start recording 
+ 2.1 Record for a fixed time
+ 2.2 Display progress and remaining amount of time.
+ 2.2 Allow to stop recording
+3. Allow to play the record
+4. Allow to download the record.
 
-Timer, Progress
- Run a timer for x no.of seconds.
- - Allow a skip option
- - Show the progress
-Recording
- Start recording in x no.of seconds
-Play
- Save to audio to file
- Play the file
+2. Repeat Sentence
+-------------------
+1. Play an audio
+2. Once audio completed give a pasue to 3 seconds
+3. Start recording
+ 3.1 Record for a fixed time
+ 3.2 Display progress and remaining amount of time.
+ 3.2 Allow to stop recording
 
- 2. Repeat Sentence
- -------------------
-TODO
- 3. TODO
+# Technical Requirements
+To cater above functional requirements, an audio manager module need to be available. It should do following functions.
+1. Record Audio for x time
+2. Allow to stop the recoding
+3. Allow to play the audio
+4. Allow to download the audio
+
+
 
 ## Technical Matters
 
