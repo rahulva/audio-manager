@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, Observable, timer } from 'rxjs';
-import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-timer',
