@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-// import { AudioRecorder } from 'src/scripts/recorder'
+import { Component, OnInit } from '@angular/core';
+//import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'audio-manager';
+ 
 }

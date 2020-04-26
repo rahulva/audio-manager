@@ -28,11 +28,10 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/scripts/recorder.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -94,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -129,6 +129,6 @@
   },
   "defaultProject": "audio-manager",
   "cli": {
-    "analytics": "f9b59b06-308a-4049-b2bc-8fd5c5a42031"
+    "analytics": false
   }
 }

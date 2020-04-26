@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AudioServiceService } from 'src/app/audio-service.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { AudioService } from '../services/audio.service';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-read-aloud',
@@ -9,73 +10,66 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class ReadAloudComponent implements OnInit {
 
-  public timeLeft: number;
-  public progressValue: number = 0;
-  private audioService: AudioServiceService;
-
-  // enableRecord: boolean = true;
-  // enableStop: boolean = false;
-  // enablePlay: boolean = false;
-
-  audioUrl: SafeUrl;
-
   constructor(private sani: DomSanitizer) { }
 
   ngOnInit(): void {
   }
 
+  progressValue: number = 0;
+  @ViewChild('stopButton')
+  stopButton: ElementRef<HTMLButtonElement>;
+  @ViewChild(TimerComponent)
+  timerComponent: TimerComponent;
+
+  timeLeft: number;
+  // progressValue: number = 30;
+  audioUrl: SafeUrl;
+
+  private audioService: AudioService;
+
+  increment() {
+    this.progressValue += 10;
+  }
+
+  decrease() {
+    this.progressValue -= 10;
+  }
+
   async startRecording() {
-    // this.enableRecord = false;
-    // this.enableStop = true;
-    // this.enablePlay = false;
-
-    this.audioService = new AudioServiceService();
-    console.log('Test');
-    this.timeLeft = 3000;
-    await this.audioService.startRecording(this.timeLeft, () => {
-
-      //  this.enablePlay = true; 
-      this.audioUrl = this.getAudioUrl();
-      console.log('Callback called');
-    }).then(() => {
-      console.log('Record completed');
-      this.audioUrl = this.getAudioUrl();
+    console.log("read-aloud startRecording");
+    this.audioService = new AudioService();
+    this.timeLeft = 3;
+    this.timerComponent.startTimer(this.timeLeft);
+    await this.audioService.startRecording(this.timeLeft * 1000, () => {
+      console.log("read-aloud startRecording - callbck - setSafeAudioUrl");
+      // this.setSafeAudioUrl();
+      let el: HTMLButtonElement = this.stopButton.nativeElement;
+      el.click();
     });
-    // let value = this.timeLeft;
-    // while (this.progressValue < this.timeLeft) {
-    //   // 
-    //   // setInterval(()=>{
-    //   //   console.log('Test');
-    //   //   this.progressValue++;}, 1);
-    //   this.progressValue++;
-    //   this.audioService.sleep(1);
-    //   // setTimeout(() => { }, 1);
-    // }
-    // val.then(() => this.enablePlay = true)
   }
 
   stopRecording() {
-    // this.audioService.stopRecording();
-    // this.enablePlay = true;
-    this.audioUrl = this.getAudioUrl();
-
-    // this.enableRecord = false;
-    // this.enableStop = false;
-    // this.enablePlay = true;
+    console.log("read-aloud stopRecording - start");
+    this.audioService.stopRecording();
+    console.log("read-aloud stopRecording - setSafeAudioUrl");
+    this.setSafeAudioUrl();
+    console.log("read-aloud stopRecording - end");
   }
 
   playRecording() {
+    console.log("read-aloud playRecording");
     this.audioService.playRecording();
   }
 
   resetRecorder() {
-    // this.enableRecord = true;
-    // this.enableStop = false;
-    // this.enablePlay = false;
+    console.log("read-aloud resetRecorder");
   }
 
-  getAudioUrl() {
-    return this.sani.bypassSecurityTrustUrl(this.audioService.getAudioUrlGlobal());;
+  setSafeAudioUrl() {
+    console.log("read-aloud setSafeAudioUrl - start");
+    this.audioUrl = this.sani.bypassSecurityTrustUrl(this.audioService.getAudioUrlGlobal());
+    console.log("read-aloud audioUrl - start" + this.audioUrl);
   }
 
 }
+
