@@ -13,6 +13,10 @@ import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 export class ExcelReaderComponent implements OnInit {
 
   gData: any;
+  currentQ: any;
+  currentQNo: number = 1;
+  totalQs: number = 0;
+
   constructor(private httpCleint: HttpClient) { }
 
   ngOnInit(): void {
@@ -137,20 +141,38 @@ export class ExcelReaderComponent implements OnInit {
       /* save data */
       // this.data = <AOA[]>(XLSX.utils.sheet_to_json<AOA>(ws));
       console.log('Sheet to ');
-      let a = XLSX.utils.sheet_to_json(ws, { header: 1 });
-      console.log(a);
-      this.gData = a;
-      // this.data = <AOA[]>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      // let a = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      // console.log(a);
+      // this.gData = a;
+      this.gData = XLSX.utils.sheet_to_json(ws, { header: 1 });
       console.log('On load data  : \n ' + this.gData);
-    }
 
+      this.currentQNo = 1;
+      this.totalQs = this.gData.length;
+      this.setCurrentQ(this.currentQNo);
+    }
     reader.readAsBinaryString(blob);
   }
+
+  previous() {
+    this.currentQNo--;
+    this.setCurrentQ(this.currentQNo);
+  }
+
+  next() {
+    this.currentQNo++;
+    this.setCurrentQ(this.currentQNo);
+  }
+
+  setCurrentQ(qNo) {
+    console.log(`current Q no : ${qNo}`);
+    this.currentQ = this.gData[qNo - 1][1];
+    console.log(`current 0  : no ${this.currentQ[0]} 1 ${this.currentQ[1]}`);
+  }
+
 }
 
-
-
-export interface AOA {
-  no: number;
-  question: string;
-}
+// export class AOA {
+//   no: number;
+//   question: string;
+// }
