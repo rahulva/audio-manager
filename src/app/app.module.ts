@@ -10,13 +10,15 @@ import { TimerComponent } from './timer/timer.component';
 import { ExcelReaderComponent } from './excel-reader/excel-reader.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ReadAloud2Component } from './read-aloud2/read-aloud2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReadAloudComponent,
     TimerComponent,
-    ExcelReaderComponent
+    ExcelReaderComponent,
+    ReadAloud2Component
   ],
   imports: [
     BrowserModule,

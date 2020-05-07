@@ -33,20 +33,25 @@ export class TimerComponent implements OnInit {
     });
   }
 
-  public startTimer(runTills: number = 40) {
+  public startTimer(runTills: number = 40, callback?) {
     this.totalTime = runTills
     this.ticks = runTills;
     let timerOutput: Observable<number> = timer(0, 1000);
     let sub: Subscription = timerOutput.subscribe(t => {
       this.ticks = runTills - t;
-      console.log('Ticks : ' + this.ticks);
+      // console.log('Ticks : ' + this.ticks);
       if (this.ticks == 0) {
         sub.unsubscribe();
+        if(callback) { 
+          console.log('Calling callback')
+          callback();
+        }
       }
       this.secondsDisplay = this.getSecconds(this.ticks);
       this.minutesDisplay = this.getMinutes(this.ticks);
       this.hoursDisplay = this.getHours(this.ticks);
     });
+
   }
 
   remainingTimePercent() {

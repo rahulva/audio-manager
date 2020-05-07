@@ -1,0 +1,35 @@
+<section class="mat-typography title-group">
+    <h1>Read Aloud 2</h1>
+    <mat-divider></mat-divider>
+</section>
+<div>
+    <!--Quest Prompt -->
+    <div class="text-contaner">
+        {{currentQ}}
+    </div>
+
+    <div>
+        <!--Timer and progress -->
+        {{message }} <app-timer></app-timer>
+    </div>
+    <audio controls [src]="audioUrl"></audio>
+
+    <div class="control-buttons">
+        <!-- <button id="record" (click)="startRecording()">Start</button> -->
+        <button #stopButton id="stop" (click)="stopRecording()">Stop/Play/Download</button>
+        <button id="play" (click)="playRecording()">Play</button>
+        <button id="reset" (click)="resetRecorder()">Reset</button>
+    </div>
+
+    <!--Question control -->
+    <div class="text-controle">
+        <span>
+            <button (click)="previous()"> Previous</button>
+            {{currentQNo}} of {{totalQs}}
+            <select #t (change)="changeQuestion(t.value)">
+                <option *ngFor="let qNO of this.qNumbers" [value]="qNO">{{qNO}}</option>
+            </select>
+            <button (click)="next()"> Next </button>
+        </span>
+    </div>
+</div>

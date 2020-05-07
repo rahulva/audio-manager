@@ -3,3 +3,6 @@ https://github.com/SheetJS/sheetjs/tree/master/demos/typescript
 https://stackoverflow.com/questions/47151035/angular-4-how-to-read-data-from-excel
 https://www.c-sharpcorner.com/article/reading-a-excel-file-using-html5-jquery/
 https://www.positronx.io/create-angular-material-8-custom-theme/
+
+ng g component read-aloud2 --module=app.module.ts
+ng g service file-reader
