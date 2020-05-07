@@ -1,19 +1,15 @@
-<p>excel-reader works!</p>
-<!-- <table class="sjs-table">
-  <tr *ngFor="let row of gData">
-    <td *ngFor="let val of row">
-      {{val}}
-    </td>
-  </tr>
-</table> -->
-
-<div style="height: 150px;">
-  <div style="height: 120px; margin: 10px;">
+<div class="text-reader">
+  <div class="text-contaner">
     {{currentQ}}
   </div>
-  <span style="height: 20px; align-content: left; width: 100%;">
-    <button (click)="previous()"> Previous</button>
-    {{currentQNo}} of {{totalQs}}
-    <button (click)="next()"> Next </button>
-  </span>
+  <div class="text-controle">
+    <span>
+      <button (click)="previous()"> Previous</button>
+      {{currentQNo}} of {{totalQs}}
+      <select #t (change)="changeQuestion(t.value)">
+        <option *ngFor="let qNO of this.qNumbers" [value]="qNO">{{qNO}}</option>
+      </select>
+      <button (click)="next()"> Next </button>
+    </span>
+  </div>
 </div>
