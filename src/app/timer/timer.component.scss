@@ -1,15 +1,14 @@
 .timer {
     align-content: center;
     margin: 0px;
-    .progress-bar-container-top {
+    .progress-bar-container-wrapper {
+        width: 100%;
         text-align: center;
-        align-content: center;
-        // padding-left: 50px;
         .progress-bar-container {
-            width: 500px;
-            // margin: 0px;
             align-content: center;
             text-align: center;
+            display: inline-block;
+            width: 500px;
         }
     }
 }
