@@ -7,18 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReadAloudComponent } from './read-aloud/read-aloud.component';
 import { TimerComponent } from './timer/timer.component';
+import { ExcelReaderComponent } from './excel-reader/excel-reader.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReadAloudComponent,
-    TimerComponent
+    TimerComponent,
+    ExcelReaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialWrapModule
+    AngularMaterialWrapModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
